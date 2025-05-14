@@ -1,9 +1,9 @@
-##Estraction of Person.csv
+## Extraction of Person.csv
 
 library(tidyverse)
 library(bigrquery)
 
-# This query represents dataset for domain "person" and was generated for All of Us Registered Tier Dataset v8
+# This query represents a dataset for the domain "person" and was generated for the All of Us Registered Tier Dataset v8
 dataset_PheWAS_person_sql <- paste("
     SELECT
         person.person_id,
@@ -68,8 +68,6 @@ bq_table_save(
   PheWAS_person_path,
   destination_format = "CSV")
 
-
-
 # Read the data directly from Cloud Storage into memory.
 # NOTE: Alternatively you can `gsutil -m cp {person_46948194_path}` to copy these files
 #       to the Jupyter disk.
@@ -87,6 +85,8 @@ read_bq_export_from_workspace_bucket <- function(export_path) {
         }))
 }
 PheeWAS_person_df <- read_bq_export_from_workspace_bucket(PheWAS_person_path)
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##Extraction of GP_clinical table
 ibrary(tidyverse)
@@ -159,6 +159,8 @@ all_data <- do.call(rbind, lapply(file_list, read.csv))
 # Save the final CSV
 write.csv(all_data, file = "gp_clinical.csv", row.names = FALSE)
 
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ##HESIN
 library(tidyverse)
 library(bigrquery)
@@ -216,14 +218,14 @@ for (group in eid_groups) {
     c<-c+1
 }
 
-
-
 # Leggi tutti i file CSV e concatenali
 file_list <- list.files(pattern = "hesin_.*\\.csv", full.names = TRUE)
 all_data <- do.call(rbind, lapply(file_list, read.csv))
 
 # Salva il file concatenato
 write.csv(all_data, file = "hesin_combined.csv", row.names = FALSE)
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##HESIN_DIAG (Cancer diagnosis)
 library(tidyverse)
@@ -273,6 +275,8 @@ dim(hesin_diag_c_df)
 head(hesin_diag_c_df, 20)
 
 write.csv(as.data.frame(hesin_diag_c_df), file="hesin_diag_cancer.csv")
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##HESIN_DIAG (no cancer)
 library(tidyverse)
@@ -363,8 +367,7 @@ final_data <- do.call(rbind, lapply(intermediate_files, read.csv))
 
 write.csv(final_data, file = "hesin_diag_no_cancer.csv", row.names = FALSE)
 
-
-
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##HESIN_OPER
 library(tidyverse)
@@ -387,8 +390,6 @@ group_size <- 1000
 eid_groups <- split(eid_list, ceiling(seq_along(eid_list) / group_size))
 head(eid_list)
 head(eid_groups)
-
-
 
 # Iterate over chunks
 c=0
@@ -438,14 +439,14 @@ for (group in eid_groups) {
     c<-c+1
 }
 
-
-
 # Leggi tutti i file CSV e concatenali
 file_list <- list.files(pattern = "hesin_oper.*\\.csv", full.names = TRUE)
 all_data <- do.call(rbind, lapply(file_list, read.csv))
 
 # Salva il file concatenato
 write.csv(all_data, file = "hesin_oper_combined.csv", row.names = FALSE)
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #DEATH_DATES
 library(tidyverse)
