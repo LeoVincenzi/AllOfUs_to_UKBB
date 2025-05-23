@@ -1,0 +1,125 @@
+actual condition	DC6 meaning	DC6 code
+acid reflux	gastro-oesophageal reflux (gord) / gastric reflux	1138
+a bleeding disorder	"	clotting disorder/excessive bleeding"	1445
+a drug use disorder	other substance abuse/dependency	1410
+a heart attack	"	heart attack/myocardial infarction"	1075
+a hernia	unclassifiable	99999
+a liver condition (e.g., cirrhosis)	liver failure/cirrhosis	1158
+a personality disorder	mania/bipolar disorder/manic depression	1291
+a skin condition(s) (e.g., eczema, psoriasis)	blistering/desquamating skin disorder	1454
+a social phobia	"	psychological/psychiatric problem"	1243
+a stroke	stroke	1081
+acne	acne/acne vulgaris	1548
+acute kidney disease with no current dialysis	other renal/kidney problem	1405
+alcohol use disorder	alcohol dependency	1408
+allergies	"	allergy/hypersensitivity/anaphylaxis"	1374
+an eating disorder	"	anorexia/bulimia/other eating disorder"	1470
+an enlarged prostate	enlarged prostate	1396
+anemia	anaemia	1446
+anxiety reaction/panic disorder	anxiety/panic attacks	1287
+astigmatism	eye/eyelid problem	1242
+atrial fibrillation (a-fib) or atrial flutter (or a-flutter)	atrial fibrillation	1471
+attention-deficit/hyperactivity disorder (adhd)	"	psychological/psychiatric problem"	1243
+autism spectrum disorder	unclassifiable	99999
+bipolar disorder	mania/bipolar disorder/manic depression	1291
+bladder cancer	NA	NA
+blindness, all causes	eye/eyelid problem	1242
+blood or soft tissue cancer	NA	NA
+bone cancer	bone disorder	1293
+bowel obstruction	bowel / intestinal obstruction	1602
+brain cancer	NA	NA
+breast cancer	breast fibroadenoma	1560
+cataracts	cataract	1278
+celiac disease	"	food intolerance"	1562
+cervical cancer	NA	NA
+chronic fatigue	chronic fatigue syndrome	1482
+chronic lung disease (copd, emphysema, or bronchitis)	emphysema/chronic bronchitis	1113
+chronic sinus infections	chronic sinusitis	1416
+colon cancer/rectal cancer	NA	NA
+colon polyps	rectal or colon adenoma/polyps	1460
+concussion or loss of consciousness	unclassifiable	99999
+congestive heart failure	heart failure/pulmonary odema	1076
+coronary artery/coronary heart disease	heart/cardiac problem	1066
+crohn's disease	crohns disease	1462
+dementia (includes alzheimer's, vascular, etc.)	"	dementia/alzheimers/cognitive impairment"	1263
+diverticulitis/diverticulosis	diverticular disease/diverticulitis	1458
+endocrine cancer	NA	NA
+endometrial cancer	NA	NA
+epilepsy or seizure	epilepsy	1264
+esophageal cancer	oesophageal varicies	1141
+eye cancer	NA	NA
+farsightedness	eye/eyelid problem	1242
+fibroids	unclassifiable	99999
+fractured/broken bones	unclassifiable	99999
+gall stones,"allergy to elastoplast",1670	"	cholelithiasis/gall stones"	1162
+head and neck cancer (this includes cancers of the mouth, sinuses, nose, or throat. this does not include brain cancer.)	NA	NA
+heart valve disease	heart valve problem/heart murmur	1078
+hemorrhoids	haemorrhoids / piles	1505
+high blood pressure (hypertension)	hypertension	1065
+hyperthyroidism	hyperthyroidism/thyrotoxicosis	1225
+hypothyroidism	"	hypothyroidism/myxoedema"	1226
+irritable bowel syndrome (ibs)	irritable bowel syndrome	1154
+kidney cancer	NA	NA
+kidney disease with dialysis	renal/kidney failure	1192
+kidney disease without dialysis	other renal/kidney problem	1405
+kidney stones	kidney stone/ureter stone/bladder stone	1197
+lou gehrig's disease (amyotrophic lateral sclerosis)	other demyelinating disease (not multiple sclerosis)	1397
+lung cancer	NA	NA
+lyme disease	unclassifiable	99999
+memory loss or impairment	dementia/alzheimers/cognitive impairment	1263
+migraine headaches	migraine	1265
+multiple sclerosis (ms)	multiple sclerosis	1261
+muscular dystrophy (md)	muscle/soft tissue problem	1297
+narcolepsy	"	chronic/degenerative neurological problem"	1258
+nearsightedness	eye/eyelid problem	1242
+neuropathy	"	peripheral neuropathy"	1255
+obesity	"	anorexia/bulimia/other eating disorder"	1470
+other arthritis	arthritis (nos)	1538
+other bone, joint, or muscle condition(s)	other joint disorder	1467
+other brain or nervous system condition(s)	other joint disorder	1467
+other cancer(s)	NA	NA
+other condition(s)	other joint disorder	1467
+other digestive condition(s)	other abdominal problem	1137
+other hearing or eye condition(s)	other joint disorder	1467
+other heart or blood condition(s)	"	other venous/lymphatic disease"	1493
+other hormone/endocrine condition(s)	other joint disorder	1467
+other infectious disease(s)	other joint disorder	1467
+other kidney condition(s)	other renal/kidney problem	1405
+other lung condition(s)	other respiratory problems	1117
+other mental health or substance use condition(s)	unclassifiable	99999
+other/unknown diabetes	diabetes	1220
+other/unknown thyroid condition(s)	thyroid problem (not cancer)	1224
+ovarian cancer	NA	NA
+pancreatic cancer	pancreatic disease	1164
+parkinson's disease	parkinsons disease	1262
+peptic (stomach) ulcers	peptic ulcer	1400
+polycystic ovarian syndrome	polycystic ovaries/polycystic ovarian syndrome	1350
+post-traumatic stress disorder (ptsd)	post-traumatic stress disorder	1469
+prediabetes	diabetes	1220
+prostate cancer	NA	NA
+pseudogout (cppd)	gout	1466
+pulmonary embolism or deep vein thrombosis (dvt)	pulmonary embolism +/- dvt	1093
+reactions to anesthesia (such as hyperthermia)	allergy or anaphylactic reaction to drug	1386
+recurrent urinary tract infections (uti)/bladder infections	urinary tract infection/kidney infection	1196
+recurrent yeast infections	unclassifiable	99999
+restless leg syndrome	muscle/soft tissue problem	1297
+rheumatoid arthritis (ra)	rheumatoid arthritis	1464
+severe acute respiratory syndrome (sars)	respiratory infection	1594
+severe hearing loss or partial deafness in one or both ears	ear/vestibular disorder	1415
+sexually transmitted infections (gonorrhea, syphilis, chlamydia)	"	chlamydia"	1678
+skin cancer	NA	NA
+sleep apnea	sleep apnoea	1123
+spinal cord injury or impairment	spinal cord disorder	1251
+spine, muscle, or bone disorders (non-cancer)	joint disorder	1295
+stomach cancer	stomach disorder	1135
+systemic lupus	systemic lupus erythematosis/sle	1381
+thyroid cancer	NA	NA
+tinnitus	tinnitus / tiniitis	1597
+transient ischemic attacks (tias or mini-strokes)	transient ischaemic attack (tia)	1082
+traumatic brain injury (tbi)	unclassifiable	99999
+tuberculosis	tuberculosis (tb)	1440
+vitamin b deficiency	unclassifiable	99999
+vitamin d deficiency	unclassifiable	99999
+west nile virus	dengue fever	1576
+zika virus	dengue fever	1576
+gall stones	cholelithiasis/gall stones	1162

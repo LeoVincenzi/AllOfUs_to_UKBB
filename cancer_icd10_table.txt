@@ -1,0 +1,20 @@
+Condition	Code
+skin cancer	C430
+breast cancer	C500
+thyroid cancer	C73
+prostate cancer	C61
+blood or soft tissue cancer	C490
+blood or soft tissue cancer	C910
+other cancer(s)	C800
+lung cancer	C430
+bladder cancer	C670
+colon cancer/rectal cancer	C180
+colon cancer/rectal cancer	C20
+kidney cancer	C64
+head and neck cancer (this includes cancers of the mouth, sinuses, nose, or throat. this does not include brain cancer.)	C760
+ovarian cancer	C56
+brain cancer	C710
+endocrine cancer	C750
+cervical cancer	C150
+endometrial cancer	C541
+eye cancer	C690
