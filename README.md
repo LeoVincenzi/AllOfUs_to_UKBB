@@ -22,11 +22,11 @@ NB: In this case, the suggestion is to work with high resources: 16 CPU and at l
 
 ## Survey table extraction
 A separate task was for the survey since the AllOfUs provides a specific code for the surveys we want to evaluate.
-Follow the `Survey_extraction.R` script in this case. Remember that the outcome from the script needs to be integrated with the "PheWAS_person.csv" from the other script to set the min_data.cav table is needed for further analysis.
+Follow the `Survey_extraction.R` script in this case. Remember that the outcome from the script needs to be integrated with the "PheWAS_person.csv" from the other script to set the min_data.csv table is needed for further analysis.
 
 
 ## Survey post-processing
-Once the survey outcome has been obtained, we need to build the min_data table. The script `survey_processing.R` goes through a series of transformations which apply the Data-Coding-6 system (https://biobank.ctsu.ox.ac.uk/crystal/coding.cgi?id=6) of the UKBioBank to the symptoms extracted from the Questionnaire in the AllOfUs. Both table cod_6_table.csv and DC6_na_conversion.csv contribute to performing the conversion of the terms. Moreover, the script separates the self-reported DC6 terms from the self-reported cancer terms (which do not have the DC6 as they are only for non-cancer conditions), which are further converted into their ICD10 codes values. The final output will present 4 columns:
+Once the survey outcome has been obtained, we need to build the min_data table. The script `survey_processing.R` goes through a series of transformations which apply the Data-Coding-6 system (https://biobank.ctsu.ox.ac.uk/crystal/coding.cgi?id=6) of the UKBioBank to the symptoms extracted from the Questionnaire in the AllOfUs. Both table cod_6_table.csv and DC6_na_conversion.csv contribute to performing the conversion of the terms. Moreover, the script separates the self-reported DC6 terms from the self-reported cancer terms (which do not have the DC6 as they are only for non-cancer conditions), which are further converted into their ICD10 codes values using the cancer_icd10_table.txt table. The final output will present 4 columns:
 - 20002: columns with the self-reported terms in DC6 coding;
 - 20008: columns with the corresponding date of the self-reported conditions;
 - 40005: columns with the self-reported cancer terms in ICD10 coding;
