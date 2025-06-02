@@ -382,14 +382,14 @@ chunk_size <- 100000  # Numero di righe per chunk
 
 eid_list <- sort(read.csv("PheWAS_person.csv")$person_id)
 
-start_value=5564262
-eid_list <- eid_list[eid_list >= start_value]
+#Use the following two lines if the for cycle stops in one point to restart from the last value (Start_value). Remember to update also the c counter before running.
+#start_value=5564262
+#eid_list <- eid_list[eid_list >= start_value]
 
 # Dividi la lista in gruppi di 10 identificativi
 group_size <- 1000
 eid_groups <- split(eid_list, ceiling(seq_along(eid_list) / group_size))
-head(eid_list)
-head(eid_groups)
+length(eid_groups)
 
 # Iterate over chunks
 c=0
@@ -455,7 +455,7 @@ library(lubridate)
 library(glue)
 
 # This query represents dataset "PheeWAS_db" for domain "person" and was generated for All of Us Registered Tier Dataset v8
-dataset_PheeWAS_gp_script_sql <- paste("
+dataset_PheeWAS_death_script_sql <- paste("
     SELECT
         d.person_id AS eid,
         DENSE_RANK() OVER (PARTITION BY d.person_id ORDER BY d.death_date) AS ins_index,
@@ -468,20 +468,40 @@ dataset_PheeWAS_gp_script_sql <- paste("
         concept_relationship cr ON d.death_type_concept_id = cr.concept_id_1 AND cr.relationship_id = 'Mapped from'
     LEFT JOIN
         concept c ON cr.concept_id_2 = c.concept_id
-        AND d.person_id IN (
-            SELECT DISTINCT cb.person_id
-            FROM cb_search_person cb
-            INNER JOIN person p 
-                ON cb.person_id = p.person_id
+    WHERE
+        d.person_id IN (SELECT
+            distinct person_id  
+        FROM
+            `cb_search_person` cb_search_person  
+        WHERE
+            cb_search_person.person_id IN (SELECT
+                person_id 
+            FROM
+                `person` p 
             WHERE
-                p.ethnicity_concept_id = 38003564
-                AND p.race_concept_id IN (8527, 8516, 2000000008, 8515)
-                AND cb.has_ehr_data = 1
-        )
+                ethnicity_concept_id IN (38003564) ) 
+            AND cb_search_person.person_id IN (SELECT
+                person_id 
+            FROM
+                `person` p 
+            WHERE
+                race_concept_id IN (8527, 8516, 2000000008, 8515) ) 
+            AND cb_search_person.person_id IN (SELECT
+                person_id 
+            FROM
+                `cb_search_person` p 
+            WHERE
+                has_ehr_data = 1 ) 
+            AND cb_search_person.person_id IN (SELECT
+                person_id 
+            FROM
+                `cb_search_person` p 
+            WHERE
+                has_array_data = 1 ) )
     ORDER BY
         eid, ins_index", sep="")
 
-death_df <- bq_table_download(bq_dataset_query(Sys.getenv("WORKSPACE_CDR"), dataset_PheeWAS_gp_script_sql, billing=Sys.getenv("GOOGLE_PROJECT")))
+death_df <- bq_table_download(bq_dataset_query(Sys.getenv("WORKSPACE_CDR"), dataset_PheeWAS_death_script_sql, billing=Sys.getenv("GOOGLE_PROJECT")))
 
 write.csv(as.data.frame(death_df), file="death.csv")
 
