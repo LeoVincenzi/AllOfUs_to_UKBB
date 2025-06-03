@@ -11,7 +11,7 @@ library(data.table)
 
 #Step 1: Loading and preparing files
 #Load the survey table
-survey_df <- read.csv("survey.csv")
+survey_df <- read.csv("survey_table.csv")
 
 # Transform the survey dataframe into long format for easy replacement
 survey_long <- survey_df %>%
@@ -114,7 +114,7 @@ final_min_data <- final_min_data %>%
 ##--------------------------------------------------------------------------------------
 
 ## Third section will regard the creation of columns 40006-*
-
+cancer_cols <- setdiff(names(survey_reformatted), "eid")
 # Extract cancer values and create a new dataset
 cancer_data <- survey_reformatted %>%
   rowwise() %>%
@@ -161,7 +161,7 @@ final_min_data <- new_cancer_data_converted %>%
 final_min_data <- final_min_data %>%
   select(
     eid, 
-    `53-0.0`, 
+    matches("^53"), 
     matches("^20002"),  # All column starting with 20002
     matches("^20008"),  # All column starting with 20008
     matches("^40005"),  # All column starting with 40005
