@@ -100,7 +100,32 @@ survey_date <- survey_df %>%
 final_min_data <- survey_reformatted %>%
   left_join(survey_date, by = "eid")
 
-## Adding the column 53-0.0 for the date of the survey (it will be the correspondent first column of 20008 dates)
+# Fix the table and remove cancer cells
+code_cols <- grep("^20002-", names(final_min_data), value = TRUE)
+date_cols <- grep("^20008-", names(final_min_data), value = TRUE)
+
+# Function to clean the table
+clean_row <- function(code_row, date_row) {
+  keep <- !grepl("cancer", code_row, ignore.case = TRUE) & !is.na(code_row)
+  new_codes <- c(code_row[keep], rep(NA, length(code_row) - sum(keep)))
+  new_dates <- c(date_row[keep], rep(NA, length(date_row) - sum(keep)))
+  c(new_codes, new_dates)
+}
+
+# Apply function
+cleaned <- t(apply(final_min_data[, c(code_cols, date_cols)], 1, function(row) {
+  n_code <- length(code_cols)
+  n_date <- length(date_cols)
+  code_row <- as.character(row[1:n_code])
+  date_row <- as.character(row[(n_code+1):(n_code+n_date)])
+  clean_row(code_row, date_row)
+}))
+    
+colnames(cleaned) <- c(code_cols, date_cols)
+# Change the column names
+final_min_data[, c(code_cols, date_cols)] <- cleaned
+
+## Adding the column 53-0.0 for the date of the survey (it will be the corresponding first column of 20008 dates)
 replace_col <- survey_date %>%
   select(eid, "20008-0.1") %>%
   distinct(eid, .keep_all = TRUE) %>%
@@ -154,7 +179,12 @@ new_cancer_data_converted <- cancer_data_converted %>%
   rename_with(~ gsub("40006", "40005", .), matches("_temp$")) %>%
   rename_with(~ gsub("_temp$", "", .), matches("_temp$"))
 
-#Add the cancer-table to the final dataframe
+#Fix the date format in the columns 40005
+cols <- grep("^40005", names(new_cancer_data_converted), value = TRUE)
+new_cancer_data_converted[cols] <- lapply(new_cancer_data_converted[cols], function(x) as.Date(as.numeric(x), origin = "1970-01-01"))
+
+
+#Add the cancer table to the final dataframe
 final_min_data <- new_cancer_data_converted %>%
   left_join(final_min_data, by = "eid")
 
