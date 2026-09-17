@@ -5,19 +5,20 @@
 3. [Survey table extraction](#Survey-table-extraction)
 4. [Survey post-processing](#Survey-post-processing)
 4. [GP conversion](#GP-conversion)
+5. [Citation](#Citation)
 
 ## About this Repository
-This repository accompanies the manuscript "Modeling Sleep Genetics Uncovers Distinct Disease Risks in Night vs. Day Workers"
+This repository accompanies the manuscript "Modelling Sleep Genetics Uncovers Distinct Disease Risks in Night vs. Day Workers"
 
 <p align="center">
 <img src="Figure_1.png" alt="Overview Figure" width="600"/>
 <br/><br/>
 
-> **_Abstract:_** Shift work has adverse health consequences, but the genetic basis of this vulnerability remains underexplored. Using Genomic structural equation modelling, we derived six latent sleep factors reflecting core RU-SATED domains from large-scale GWAS data. Polygenic scores for sleep regularity and daytime alertness showed strong genetic correlations with metabolic and behavioral traits and were causally linked to depression, well-being, and insulin regulation in Mendelian randomization. A phenome-wide association study in the UK Biobank subset of night shift workers and controls (N = 46,211) revealed associations with T2D, hypertension, and COPD, and other outcomes, which were independently replicated in the All of Us cohort (N = 131,729). Incorporating behavioural traits into extended PRS improved predictive power. Stratified analyses showed that genetic risk for poor sleep regularity had the strongest differential effect, increasing T2D risk by over twofold in night shift workers compared to day workers. These findings highlight how genetically encoded sleep traits interact with environmental exposures to shape disease risk.
+> **_Abstract:_** Shift work has adverse health consequences, but the genetic basis of this vulnerability remains underexplored. Using Genomic structural equation modelling, we derived six latent sleep factors reflecting core RU-SATED domains from large-scale GWAS data. Polygenic scores for sleep regularity and daytime alertness showed strong genetic correlations with metabolic and behavioural traits and were causally linked to depression, well-being, and insulin regulation in Mendelian randomisation. A phenome-wide association study in the UK Biobank subset of night shift workers and controls (N = 46,211) revealed associations with T2D, hypertension, and COPD, and other outcomes, which were independently replicated in the All of Us cohort (N = 131,729). Incorporating behavioural traits into extended PRS improved predictive power. Stratified analyses showed that genetic risk for poor sleep regularity had the strongest differential effect, increasing T2D risk by over twofold in night shift workers compared to day workers. These findings highlight how genetically encoded sleep traits interact with environmental exposures to shape disease risk.
 <p>
 <br/>
 
-This repository is meant to enable you to recover data from the AllOfUs Research Program dataset and prepare it in the format of the UKBioBank, in order to be able to perform analysis on the two datasets.
+This repository is meant to enable you to recover data from the AllOfUs Research Program dataset and prepare it in the format of the UK Biobank, in order to be able to perform analysis on the two datasets.
 All the scripts reported are intended to be run inside the AllOfUs Notebook.
 
 ## Table extraction
@@ -33,16 +34,16 @@ The tables we are going to download are the following:
 - Death table.
 The death_cause and the Gp_drug tables were not included.
 
-Considering that some of the tables were extracted through an iterative seeding approach, to manage high dimensions, as for the hesin_diag_non_cancer.
+Considering that some of the tables were extracted through an iterative seeding approach to manage high dimensions, as for the hesin_diag_non_cancer.
 NB: In this case, the suggestion is to work with high resources: 16 CPU and at least 60 GB of RAM.
 
 ## Survey table extraction
 A separate task was for the survey since the AllOfUs provides a specific code for the surveys we want to evaluate.
-Follow the `Survey_extraction.R` script in this case. Remember that the outcome from the script needs to be integrated with the "PheWAS_person.csv" from the other script to set the min_data.csv table is needed for further analysis.
+Follow the `Survey_extraction.R` script in this case. Remember that the outcome from the script needs to be integrated with the "PheWAS_person.csv" from the other script to set up the min_data.csv table needed for further analysis.
 
 
 ## Survey post-processing
-Once the survey outcome has been obtained, we need to build the min_data table. The script `survey_processing.R` goes through a series of transformations which apply the Data-Coding-6 system (https://biobank.ctsu.ox.ac.uk/crystal/coding.cgi?id=6) of the UKBioBank to the symptoms extracted from the Questionnaire in the AllOfUs. Both table cod_6_table.csv and DC6_na_conversion.csv contribute to performing the conversion of the terms. Moreover, the script separates the self-reported DC6 terms from the self-reported cancer terms (which do not have the DC6 as they are only for non-cancer conditions), which are further converted into their ICD10 codes values using the cancer_icd10_table.txt table. The final output will present 4 columns:
+Once the survey outcome has been obtained, we need to build the min_data table. The script `survey_processing.R` goes through a series of transformations which apply the Data-Coding-6 system (https://biobank.ctsu.ox.ac.uk/crystal/coding.cgi?id=6) of the UK Biobank to the symptoms extracted from the Questionnaire in the AllOfUs. Both table cod_6_table.csv and DC6_na_conversion.csv contribute to performing the conversion of the terms. Moreover, the script separates the self-reported DC6 terms from the self-reported cancer terms (which do not have the DC6, as they are only for non-cancer conditions), which are further converted into their ICD-10 code values using the cancer_icd10_table.txt table. The final output will present 4 columns:
 - 20002: columns with the self-reported terms in DC6 coding;
 - 20008: columns with the corresponding date of the self-reported conditions;
 - 40005: columns with the self-reported cancer terms in ICD10 coding;
@@ -54,7 +55,7 @@ The GP_clinical table needs post-processing since the SNOMED code in the read_3 
 
 ## Citation
 If you use this repository or the All of Us to UK Biobank data harmonisation approach in your research, please cite:
-- Żebrowska M, Wielscher M, Zhang J, Saksvik-Lehouillier I, DiMilia L, Burns A, Valliere J, Vincenzi L, Redline S, Okereke O, Saxena R, Richmond R, Rutter MK, Schernhammer ES. Genetic architecture of a Circadian Imbalance Index: genome-wide association, phenome-wide association, and Mendelian randomisation analyses. eBioMedicine. 2026;130:106380.
+- Żebrowska M, Wielscher M, Zhang J, Saksvik-Lehouillier I, DiMilia L, Burns A, Valliere J, Vincenzi L, Redline S, Okereke O, Saxena R, Richmond R, Rutter MK, Schernhammer ES. _Genetic architecture of a Circadian Imbalance Index: genome-wide association, phenome-wide association, and Mendelian randomisation analyses. eBioMedicine. 2026;130:106380._
 [https://doi.org/10.1016/j.ebiom.2026.106380](https://doi.org/10.1016/j.ebiom.2026.106380)
 
 This repository accompanies the above study and provides scripts and resources to harmonise data from the All of Us Research Program into a format compatible with UK Biobank analyses.
