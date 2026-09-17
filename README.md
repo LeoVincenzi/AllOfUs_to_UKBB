@@ -54,19 +54,8 @@ The GP_clinical table needs post-processing since the SNOMED code in the read_3 
 
 ## Citation
 If you use this repository or the All of Us to UK Biobank data harmonisation approach in your research, please cite:
-### BibTeX
-
-```bibtex
-@article{zebrowska2026circadian,
-  title   = {Genetic architecture of a Circadian Imbalance Index: genome-wide association, phenome-wide association, and Mendelian randomisation analyses},
-  author  = {Żebrowska, Magdalena and Wielscher, Matthias and Zhang, Jing and Saksvik-Lehouillier, Ingvild and DiMilia, Lee and Burns, Angus and Valliere, Jesse and Vincenzi, Leonardo and Redline, Susan and Okereke, Olivia and Saxena, Richa and Richmond, Rebecca and Rutter, Martin K. and Schernhammer, Eva S.},
-  journal = {eBioMedicine},
-  volume  = {130},
-  pages   = {106380},
-  year    = {2026},
-  doi     = {10.1016/j.ebiom.2026.106380}
-}
-```
+- Żebrowska M, Wielscher M, Zhang J, Saksvik-Lehouillier I, DiMilia L, Burns A, Valliere J, Vincenzi L, Redline S, Okereke O, Saxena R, Richmond R, Rutter MK, Schernhammer ES. Genetic architecture of a Circadian Imbalance Index: genome-wide association, phenome-wide association, and Mendelian randomisation analyses. eBioMedicine. 2026;130:106380.
+[https://doi.org/10.1016/j.ebiom.2026.106380](https://doi.org/10.1016/j.ebiom.2026.106380)
 
 This repository accompanies the above study and provides scripts and resources to harmonise data from the All of Us Research Program into a format compatible with UK Biobank analyses.
 
